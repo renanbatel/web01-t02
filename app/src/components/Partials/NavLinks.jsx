@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Button } from "@material-ui/core";
+// import SmoothScroll from "smooth-scroll";
 
 export default class NavLinks extends Component {
   
-  clickEvents = () => {
-    const { onClickEvent } = this.props;
+  // smoothScroll = new SmoothScroll();
+
+  clickEvents( props ) {
+    const { onClickEvent } = props;
     onClickEvent();
   }
 
@@ -13,7 +16,7 @@ export default class NavLinks extends Component {
 
     return(
       sections.map( ( section, key ) => {
-        return <Button onClick={ this.clickEvents } key={ key } color="inherit" href={ `#${ section.id }` }>{ section.name }</Button>
+        return <Button onClick={ () => this.clickEvents( this.props ) } key={ key } color="inherit" href={ `#${ section.id }` }>{ section.name }</Button>
       } )
     );
   }

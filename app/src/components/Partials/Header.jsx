@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles, createStyles } from "@material-ui/core/styles";
-import { AppBar, Typography, Toolbar, Hidden, IconButton, Drawer } from "@material-ui/core";
+import { AppBar, Typography, Toolbar, Hidden, IconButton, Drawer, RootRef } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import NavLinks from "./NavLinks";
+import SmoothScroll from "smooth-scroll";
 
 const styles = createStyles( {
   logo: {
@@ -28,17 +29,23 @@ class Header extends Component {
     drawerIsOpen: false
   }
 
+  componentDidMount() {
+    new SmoothScroll( "a[href*=\"#\"]", {
+      header: "#header"
+    } );
+  }
+
   toogleDrawer = () => {
     this.setState( {
       drawerIsOpen: this.state.drawerIsOpen ? false : true
     } );
   }
-  
+
   render() {
     const { config, sections, classes } = this.props;
 
     return (
-      <AppBar>
+      <AppBar id="header">
         <div className="container">
 
           <Toolbar>
