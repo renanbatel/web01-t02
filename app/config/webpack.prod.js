@@ -3,6 +3,7 @@ const config               = require( "./webpack.config" );
 const merge                = require( "webpack-merge" );
 const path                 = require( "path" );
 const UglifyJSPlugin       = require( "uglifyjs-webpack-plugin" );
+const HtmlWebpackPlugin    = require( "html-webpack-plugin" );
 const MiniCSSExtractPlugin = require( "mini-css-extract-plugin" );
 const CleanWebpackPlugin   = require( "clean-webpack-plugin" );
 
@@ -56,6 +57,10 @@ module.exports = merge( config, {
   plugins: [
     new CleanWebpackPlugin( [ "dist" ], {
       root: path.resolve( '.' )
+    } ),
+    new HtmlWebpackPlugin( {
+      template: "./404.html",
+      filename: "./404.html"
     } ),
     new MiniCSSExtractPlugin( {
       filename: "static/style/[name].[hash].css",
