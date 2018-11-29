@@ -1,4 +1,9 @@
 {
+  "api": "http://localhost:4200",
+  "site": {
+    "name": "Renan Batel",
+    "admin": "renanbatel@gmail.com"
+  },
   "header": {
     "logo": "%image%"
   },

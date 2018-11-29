@@ -60,7 +60,8 @@ module.exports = merge( config, {
     } ),
     new HtmlWebpackPlugin( {
       template: "./404.html",
-      filename: "./404.html"
+      filename: "./404.html",
+      inject: false
     } ),
     new MiniCSSExtractPlugin( {
       filename: "static/style/[name].[hash].css",
